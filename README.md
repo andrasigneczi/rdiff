@@ -8,7 +8,7 @@ You can find descriptions about [rolling hash](https://en.wikipedia.org/wiki/Rol
 ## Description
 This code was made for C++ code challenge. The program was implemented considering the following aspects:
 - the hash functions must be easily modifiable, replaceable, or a new one easily addable,
-- the input sources and output targets must be easily modifiable, replaceable, or a new one easably addable,
+- the input sources and output targets must be easily modifiable, replaceable, or a new one easily addable,
 - new tasks must be easaly addable to the application
 - hash functions must be rolling hashes
 
