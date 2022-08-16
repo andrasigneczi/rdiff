@@ -1,0 +1,2 @@
+c57720c1f89b5f0dead7b73b0424bac8 *test_cases/t10/base_file
+c57720c1f89b5f0dead7b73b0424bac8 *test_cases/t10/base_file_copy

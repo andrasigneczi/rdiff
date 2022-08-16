@@ -1,0 +1,6 @@
+Rdiff.cpp(10) Rdiff::execute: start task
+Rdiff.cpp(211) Rdiff::loadDelta: start load delta
+Rdiff.cpp(236) Rdiff::loadDelta: stop load delta
+Rdiff.cpp(241) Rdiff::generatePatchedOutput: start generate patch output
+Rdiff.cpp(258) Rdiff::generatePatchedOutput: stop generate patch output
+Rdiff.cpp(13) Rdiff::execute: stop task

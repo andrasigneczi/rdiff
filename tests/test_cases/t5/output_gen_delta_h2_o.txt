@@ -1,0 +1,10 @@
+start task
+start load signature
+stop load signature
+start generate delta output
+start saving chunks for matching signature
+stop saving chunks for matching signature
+start content copy from new_file
+stop content copy from new_file
+stop generate delta output
+stop task

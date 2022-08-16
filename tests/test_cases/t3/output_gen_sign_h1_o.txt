@@ -1,0 +1,4 @@
+Rdiff.cpp(10) Rdiff::execute: start task
+Rdiff.cpp(24) Rdiff::generateSignature: start signature generation
+Rdiff.cpp(46) Rdiff::generateSignature: stop signature generation
+Rdiff.cpp(13) Rdiff::execute: stop task

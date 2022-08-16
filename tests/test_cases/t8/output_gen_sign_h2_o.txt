@@ -1,0 +1,4 @@
+start task
+start signature generation
+stop signature generation
+stop task

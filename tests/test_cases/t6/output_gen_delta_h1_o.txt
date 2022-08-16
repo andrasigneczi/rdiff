@@ -1,0 +1,12 @@
+Rdiff.cpp(10) Rdiff::execute: start task
+Rdiff.cpp(200) Rdiff::loadSignature: start load signature
+Rdiff.cpp(207) Rdiff::loadSignature: stop load signature
+Rdiff.cpp(153) Rdiff::generateDelta: start generate delta output
+Rdiff.cpp(68) Rdiff::generateChunksForMatchingSignatures: start saving chunks for matching signature
+Rdiff.cpp(108) Rdiff::generateChunksForMatchingSignatures: stop saving chunks for matching signature
+Rdiff.cpp(122) Rdiff::copyChunkContentFromNewFile: start chunk content copy from new_file
+Rdiff.cpp(112) Rdiff::copyContentFromNewFile: start content copy from new_file
+Rdiff.cpp(118) Rdiff::copyContentFromNewFile: stop content copy from new_file
+Rdiff.cpp(147) Rdiff::copyChunkContentFromNewFile: stop chunk content copy from new_file
+Rdiff.cpp(195) Rdiff::generateDelta: stop generate delta output
+Rdiff.cpp(13) Rdiff::execute: stop task

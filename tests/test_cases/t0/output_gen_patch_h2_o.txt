@@ -1,0 +1,6 @@
+start task
+start load delta
+stop load delta
+start generate patch output
+stop generate patch output
+stop task
