@@ -140,8 +140,8 @@ void Rdiff::copyChunkContentFromNewFile(size_t& chunkIndex, const Chunk& chunk, 
 
     ++chunkIndex;
     if(chunkIndex == chunks_.size() && position < input2Size) {
-        // save  hashIndex = partialChunk, length=input2_->size() - position
-        // save everythin between position and  input2_->size()
+        // save  hashIndex = partialChunk, length=input2Size - position
+        // save everythin between position and  input2Size
         copyContentFromNewFile(partialChunk, position, input2Size - position);
     }
     LoggerInterface::log(logger_, __FILE__, __LINE__, "Rdiff", __FUNCTION__, "stop chunk content copy from new_file\n");

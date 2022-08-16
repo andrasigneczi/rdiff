@@ -40,7 +40,7 @@ The code was compiled and tested on Ubuntu 20.04 64 bit only.
 ## Git clone, compilation, run the tests
 - git clone https://github.com/andrasigneczi/rdiff.git rdiff
 - cd rdiff
-- cmake CmakeLists.txt
+- cmake CMakeLists.txt
 - make -j5
 - cd tests
 - ./runTests
