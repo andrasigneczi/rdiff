@@ -5,27 +5,30 @@
 - Cyclic polynomial rolling hash
 You can find descriptions about [rolling hash](https://en.wikipedia.org/wiki/Rolling_hash) and [rdiff](https://linux.die.net/man/1/rdiff) at the links.
 
-## Usage
-Usage: rdiff [-h]
-       rdiff [OPTIONS] signature basis-file signature-file
-       rdiff [OPTIONS] delta signature-file new-file delta-file
-       rdiff [OPTIONS] patch basis-file delta-file new-file
-        Options
-           -h           Show this help message
-           -v           Trace internal processing
-           -vv          Trace internal processing + show some debug information
-           -hash 1      Set hash function to Polynomial rolling hash
-           -hash 2      Set hash function to Cyclic polynomial rolling hash (default)
-                        The hash function is saved in the signature and delta files,
-                        '-hash' parameter is ignored during delta and patch processes
-           -s           Show performance statistics
-
 ## Description
 This code was made for C++ code challenge. The program was implemented considering the following aspects:
 - the hash functions must be easily modifiable, replaceable, or a new one easily addable,
 - the input sources and output targets must be easily modifiable, replaceable, or a new one easably addable,
 - new tasks must be easaly addable to the application
 - hash functions must be rolling hashes
+
+## Usage
+```
+rdiff [-h]
+rdiff [OPTIONS] signature basis-file signature-file
+rdiff [OPTIONS] delta signature-file new-file delta-file
+rdiff [OPTIONS] patch basis-file delta-file new-file
+
+Options:
+   -h           Show this help message
+   -v           Trace internal processing
+   -vv          Trace internal processing + show some debug information
+   -hash 1      Set hash function to Polynomial rolling hash
+   -hash 2      Set hash function to Cyclic polynomial rolling hash (default)
+                The hash function is saved in the signature and delta files,
+                '-hash' parameter is ignored during delta and patch processes
+   -s           Show performance statistics
+```
 
 ## Requirements
 The code was compiled and tested on Ubuntu 20.04 64 bit only.
@@ -35,7 +38,7 @@ The code was compiled and tested on Ubuntu 20.04 64 bit only.
 - md5sum, diff should be installed if you want to run the tests
 
 ## Git clone, compilation, run the tests
-- git clone https://github.com/.... rdiff
+- git clone https://github.com/andrasigneczi/rdiff.git rdiff
 - cd rdiff
 - cmake CmakeLists.txt
 - make -j5

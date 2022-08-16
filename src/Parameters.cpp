@@ -124,7 +124,8 @@ void Parameters::displayHelp() noexcept {
                  "\trdiff [OPTIONS] signature basis-file signature-file\n" <<
                  "\trdiff [OPTIONS] delta signature-file new-file delta-file\n" <<
                  "\trdiff [OPTIONS] patch basis-file delta-file new-file\n" <<
-                 "\t Options\n" <<
+                 "\n" <<
+                 "\t Options:\n" <<
                  "\t    -h           Show this help message\n" <<
                  "\t    -v           Trace internal processing\n" <<
                  "\t    -vv          Trace internal processing + some debug information\n" <<
