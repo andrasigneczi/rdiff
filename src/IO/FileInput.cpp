@@ -7,28 +7,23 @@ FileInput::FileInput(std::string fileName) noexcept
 }
 
 bool FileInput::get(uint8_t& c) {
-    file_.read((char*)&c, sizeof(c));
-    return file_.gcount() == sizeof(c);
+    return getT(c);
 }
 
 bool FileInput::get(uint32_t& c) {
-    file_.read((char*)&c, sizeof(c));
-    return file_.gcount() == sizeof(c);
+    return getT(c);
 }
 
 bool FileInput::get(uint64_t& c) {
-    file_.read((char*)&c, sizeof(c));
-    return file_.gcount() == sizeof(c);
+    return getT(c);
 }
 
 bool FileInput::get(int32_t& c) {
-    file_.read((char*)&c, sizeof(c));
-    return file_.gcount() == sizeof(c);
+    return getT(c);
 }
 
 bool FileInput::get(int64_t& c) {
-    file_.read((char*)&c, sizeof(c));
-    return file_.gcount() == sizeof(c);
+    return getT(c);
 }
 
 bool FileInput::get(std::vector<uint8_t>& buffer, size_t length) {
@@ -59,10 +54,8 @@ long FileInput::size() {
         file_.clear(state);             // clear old state and set new state
 
         auto originalPosition = file_.tellg();
-        //std::cout << "FileInput::size originalPosition: " << originalPosition << "\n";
         file_.seekg(0, file_.end);
         auto size = file_.tellg();
-        //std::cout << "FileInput::size: " << size << "\n";
         file_.seekg(originalPosition, file_.beg);
         return size;
     }

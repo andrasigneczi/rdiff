@@ -19,7 +19,7 @@ public:
 
     void put(const std::vector<uint8_t>& buffer, size_t length) override;
 
-    [[nodiscard]]bool open() override;
+    [[nodiscard]] bool open() override;
     void close() override;
     void flush() override;
 
@@ -39,7 +39,6 @@ template<typename T>
 void FastFileOutput::putT(T& c) {
     if(bufferPos_ + sizeof(c) > bufferSize_) flushBuffer();
     memcpy(buffer_.get() + bufferPos_, &c, sizeof(c));
-    //*(T*)(buffer_.get() + bufferPos_) = c;
     bufferPos_ += sizeof(c);
 }
 

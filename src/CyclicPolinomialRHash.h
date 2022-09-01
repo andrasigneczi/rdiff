@@ -12,15 +12,16 @@ public:
 
     void add(uint8_t value) override;
     void update(uint8_t value) override;
-    bool isFull() const noexcept override {return chunkSize_ <= counter_;}
+    [[nodiscard]] bool isFull() const noexcept override {return chunkSize_ <= counter_;}
     void reset() noexcept override;
     void saveHash(OutputInterfaceUPtr& output) noexcept override;
-    Type hashFunctionType() const noexcept override {return Type::CYCLIC_POLINOMIAL;}
-    CyclicPolinomialRHash* cyclicPolinomialRHash() noexcept override {return this;}
+    [[nodiscard]] Type hashFunctionType() const noexcept override {return Type::CYCLIC_POLINOMIAL;}
+    [[nodiscard]] CyclicPolinomialRHash* cyclicPolinomialRHash() noexcept override {return this;}
 
 
-    HashValueType hashValue() noexcept {return hashValue_;}
-    static HashValueType shiftn(HashValueType value, HashValueType n) noexcept;
+    [[nodiscard]] HashValueType hashValue() noexcept {return hashValue_;}
+    [[nodiscard]] static HashValueType shiftn(HashValueType value, HashValueType n) noexcept;
+    [[nodiscard]] static HashValueType shift(HashValueType value) noexcept;
 
 private:
 

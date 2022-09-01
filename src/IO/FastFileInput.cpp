@@ -15,12 +15,11 @@ FastFileInput::FastFileInput(std::string fileName) noexcept
 bool FastFileInput::refillBuffer() noexcept {
     if(bufferPos_ == bufferContent_) {
         bufferContent_ = 0;
-        bufferPos_ = 0;
     } else {
         memmove(buffer_.get(), buffer_.get() + bufferPos_, bufferContent_ - bufferPos_);
         bufferContent_ -= bufferPos_;
-        bufferPos_ = 0;
     }
+    bufferPos_ = 0;
 
     if(ssize_t retv = read(fileNo_, buffer_.get() + bufferContent_, bufferSize_ - bufferContent_); retv < 0) {
         return false;
@@ -33,8 +32,7 @@ bool FastFileInput::refillBuffer() noexcept {
 
 bool FastFileInput::open() {
     fileNo_ = ::open(fileName_.c_str(), O_RDONLY);
-    if(fileNo_ < 0) return false;
-    return true;
+    return fileNo_ >= 0;
 }
 
 void FastFileInput::close() {

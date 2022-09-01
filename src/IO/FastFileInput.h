@@ -18,16 +18,16 @@ public:
     [[nodiscard]] bool get(int64_t& c) override {return getT(c);}
     [[nodiscard]] bool get(std::vector<uint8_t>& buffer, size_t length) override;
 
-    [[nodiscard]]bool open() override;
+    [[nodiscard]] bool open() override;
     void close() override;
-    [[nodiscard]]bool eof() override;
-    [[nodiscard]]long size() override;
+    [[nodiscard]] bool eof() override;
+    [[nodiscard]] long size() override;
     void seek(long pos) override;
 
 private:
-    bool refillBuffer() noexcept;
+    [[nodiscard]] bool refillBuffer() noexcept;
 
-    template<typename T> bool getT(T& c);
+    template<typename T> [[nodiscard]] bool getT(T& c);
 
     std::string fileName_;
     int fileNo_{-1};

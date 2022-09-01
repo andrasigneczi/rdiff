@@ -15,7 +15,6 @@ InputInterfaceUPtr IOFactory::createInput(std::string URI) {
         bool fileURI = URI.starts_with("file:///");
         if(fileURI) {
             URI = URI.substr(7);
-            //std::cout << URI << "\n";
             isLocalFile = true;
         } else {
 

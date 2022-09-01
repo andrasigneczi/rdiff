@@ -18,7 +18,7 @@ public:
 
     void put(const std::vector<uint8_t>& buffer, size_t length) override;
 
-    [[nodiscard]]bool open() override;
+    [[nodiscard]] bool open() override;
     void close() override;
     void flush() override;
 

@@ -14,12 +14,12 @@ public:
 
     virtual ~HashStorageInterface() = default;
     virtual void addHash(HashGeneratorInterface*) = 0;
-    virtual bool readHash(InputInterface*) = 0;
-    virtual size_t findHash(HashGeneratorInterface*) = 0;
+    [[nodiscard]] virtual bool readHash(InputInterface*) = 0;
+    [[nodiscard]] virtual size_t findHash(HashGeneratorInterface*) = 0;
     virtual void clear() = 0;
-    virtual size_t size() const noexcept = 0;
+    [[nodiscard]] virtual size_t size() const noexcept = 0;
 
-    virtual CyclicPolinomialRHashStorage* cyclicPolinomialRHashStorage() noexcept {return nullptr;}
+    [[nodiscard]] virtual CyclicPolinomialRHashStorage* cyclicPolinomialRHashStorage() noexcept {return nullptr;}
 };
 
 using HashStorageInterfaceUPtr = std::unique_ptr<HashStorageInterface>;

@@ -4,7 +4,7 @@
 #include "ClockInterface.h"
 #include <string>
 
-class ClockFactory {
+class ClockFactory final {
     friend class RdiffBuilder;
     enum class ClockType {
         DUMMY,
@@ -14,7 +14,7 @@ class ClockFactory {
     ClockFactory(ClockType clockType) : clockType_(clockType) {}
 
 public:
-    ClockInterfaceUPtr create(std::string_view name);
+    [[nodiscard]] ClockInterfaceUPtr create(std::string_view name);
 
 private:
     ClockType clockType_;

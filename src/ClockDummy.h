@@ -4,7 +4,7 @@
 #include "ClockInterface.h"
 #include <string>
 
-class ClockDummy : public ClockInterface {
+class ClockDummy final : public ClockInterface {
     friend class ClockFactory;
     ClockDummy() = default;
 public:
@@ -14,7 +14,7 @@ public:
     void start() override {}
     void stop() override {}
     void printDuration() override {}
-    ClockInterfaceUPtr clone() override {return nullptr;}
+    [[nodiscard]] ClockInterfaceUPtr clone() override {return nullptr;}
     void setTitle(std::string) override {}
 };
 

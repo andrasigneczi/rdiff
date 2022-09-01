@@ -11,10 +11,10 @@ class PolinomialRHashStorage final : public HashStorageInterface {
     PolinomialRHashStorage() = default;
 public:
     void addHash(HashGeneratorInterface* i) override;
-    size_t findHash(HashGeneratorInterface* inf) override;
+    [[nodiscard]] size_t findHash(HashGeneratorInterface* inf) override;
     void clear() override {signatureStorage_.clear();}
-    size_t size() const noexcept override {return signatureStorage_.size();}
-    bool readHash(InputInterface* input) override;
+    [[nodiscard]] size_t size() const noexcept override {return signatureStorage_.size();}
+    [[nodiscard]] bool readHash(InputInterface* input) override;
 
 private:
     std::vector<typename PolinomialRHash<T>::HasValueType> signatureStorage_;

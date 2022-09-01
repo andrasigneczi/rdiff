@@ -19,17 +19,17 @@ public:
     void add(uint8_t value) override;
     void update(uint8_t newValue) override;
 
-    bool isFull() const noexcept override {return chunkSize_ == chunkPos_;}
+    [[nodiscard]] bool isFull() const noexcept override {return chunkSize_ == chunkPos_;}
     void reset() noexcept override;
 
     void saveHash(OutputInterfaceUPtr& output) noexcept override;
 
-    Type hashFunctionType() const noexcept override {return Type::POLINOMIAL;}
+    [[nodiscard]] Type hashFunctionType() const noexcept override {return Type::POLINOMIAL;}
 
 private:
-    T powMod(T m) noexcept;
-    T mul(T a, T b) noexcept;
-    T mul2(T a, T b) noexcept;
+    [[nodiscard]] T powMod(T m) noexcept;
+    [[nodiscard]] T mul(T a, T b) noexcept;
+    [[nodiscard]] T mul2(T a, T b) noexcept;
 
     T hashValue_{};
     const T chunkSize_;

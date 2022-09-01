@@ -6,7 +6,7 @@
 
 class RdiffBuilder final {
 public:
-    static RdiffUPtr build(ParametersUPtr params);
+    [[nodiscard]] static RdiffUPtr build(ParametersUPtr params);
     static void changeHashFunction(Rdiff* rdiff, uint8_t hashFunctionId);
 
 private:

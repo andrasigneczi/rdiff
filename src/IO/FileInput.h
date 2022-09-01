@@ -18,13 +18,19 @@ public:
     [[nodiscard]] bool get(std::vector<uint8_t>& buffer, size_t length) override;
 
 
-    [[nodiscard]]bool open() override;
+    [[nodiscard]] bool open() override;
     void close() override;
-    [[nodiscard]]bool eof() override;
-    [[nodiscard]]long size() override;
+    [[nodiscard]] bool eof() override;
+    [[nodiscard]] long size() override;
     void seek(long pos) override;
 
 private:
+    template<typename T>
+    [[nodiscard]] bool getT(T& c) {
+        file_.read((char*)&c, sizeof(c));
+        return file_.gcount() == sizeof(c);
+    }
+
     std::string fileName_;
     std::ifstream file_;
 };

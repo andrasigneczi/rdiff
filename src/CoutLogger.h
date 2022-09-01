@@ -3,7 +3,7 @@
 
 #include "LoggerInterface.h"
 
-class CoutLogger : public LoggerInterface {
+class CoutLogger final : public LoggerInterface {
     friend class RdiffBuilder;
 public:
     enum class Type {
@@ -11,6 +11,7 @@ public:
         DEBUG
     };
     void log(std::string_view fileName, int line, std::string_view className, std::string_view functionName, std::string_view message) noexcept override;
+
 private:
     CoutLogger(Type type) : type_(type){}
     Type type_;

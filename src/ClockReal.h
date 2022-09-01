@@ -18,7 +18,7 @@ public:
     void stop() override;
     void printDuration() override;
 
-    ClockInterfaceUPtr clone() override {return ClockInterfaceUPtr(new ClockReal(*this));}
+    [[nodiscard]] ClockInterfaceUPtr clone() override {return ClockInterfaceUPtr(new ClockReal(*this));}
     void setTitle(std::string title) override {title_ = std::move(title);}
 
 private:

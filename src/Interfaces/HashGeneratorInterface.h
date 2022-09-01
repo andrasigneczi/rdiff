@@ -17,12 +17,12 @@ public:
 
     virtual void add(uint8_t value) = 0;
     virtual void update(uint8_t value) = 0;
-    virtual bool isFull() const noexcept = 0;
+    [[nodiscard]] virtual bool isFull() const noexcept = 0;
     virtual void reset() noexcept = 0;
     virtual void saveHash(OutputInterfaceUPtr& output) noexcept = 0;
-    virtual Type hashFunctionType() const noexcept = 0;
+    [[nodiscard]] virtual Type hashFunctionType() const noexcept = 0;
 
-    virtual CyclicPolinomialRHash* cyclicPolinomialRHash() noexcept {return nullptr;}
+    [[nodiscard]] virtual CyclicPolinomialRHash* cyclicPolinomialRHash() noexcept {return nullptr;}
 private:
 };
 

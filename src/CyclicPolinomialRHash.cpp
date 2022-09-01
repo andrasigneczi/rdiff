@@ -9,8 +9,7 @@ CyclicPolinomialRHash::CyclicPolinomialRHash(size_t chunkSize)
 
 void CyclicPolinomialRHash::add(uint8_t value) {
     if(isFull()) throw std::runtime_error("CyclicPolinomialRHash::add: chunk is full");
-    chunk_[counter_++] = charToUINT64[value];
-    hashValue_ = shiftn(hashValue_, 1) ^ charToUINT64[value];
+    hashValue_ = shift(hashValue_) ^ (chunk_[counter_++] = charToUINT64[value]);
 }
 
 CyclicPolinomialRHash::HashValueType CyclicPolinomialRHash::shiftn(CyclicPolinomialRHash::HashValueType value, CyclicPolinomialRHash::HashValueType n) noexcept {
@@ -18,10 +17,13 @@ CyclicPolinomialRHash::HashValueType CyclicPolinomialRHash::shiftn(CyclicPolinom
     return n ? ((value << n) | (value >> (hashValueTypeLength_ - n))) : value;
 }
 
+CyclicPolinomialRHash::HashValueType CyclicPolinomialRHash::shift(CyclicPolinomialRHash::HashValueType value) noexcept {
+    return (value << 1) | (value >> (hashValueTypeLength_ - 1));
+}
+
 void CyclicPolinomialRHash::update(uint8_t value) {
     if(!isFull()) throw std::runtime_error("CyclicPolinomialRHash::update: chunk is not full");
-    HashValueType oldValue = std::exchange(chunk_[counter_ % chunkSize_], charToUINT64[value]);
-    hashValue_ = shiftn(hashValue_, 1) ^ shiftn(oldValue, shiftN_) ^ charToUINT64[value];
+    hashValue_ = shiftn(hashValue_, 1) ^ shiftn(std::exchange(chunk_[counter_ % chunkSize_], charToUINT64[value]), shiftN_) ^ charToUINT64[value];
     ++counter_;
 }
 

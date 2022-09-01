@@ -16,7 +16,7 @@ public:
     virtual void start() = 0;
     virtual void stop() = 0;
     virtual void printDuration() = 0;
-    virtual ClockInterfaceUPtr clone() = 0;
+    [[nodiscard]] virtual ClockInterfaceUPtr clone() = 0;
     virtual void setTitle(std::string name) = 0;
 
     static void markTime(ClockInterfaceUPtr& p)      {if(p) p->markTime();}
